@@ -1,3 +1,7 @@
 .svg{
     display: block;
 }
+.titulo-search{
+    font-weight: 800;
+    color: green;
+}
