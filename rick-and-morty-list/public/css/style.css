@@ -1,7 +1,37 @@
 .svg{
     display: block;
 }
-.titulo-search{
+.titulo{
     font-weight: 800;
-    color: green;
+    font-size: 375%;
+    color: rgb(0, 88, 0);
+}
+.fundo{
+    background-size: cover;
+}
+.footer{
+    background-color: #121212; 
+    color: white; 
+    padding: 50px;
+    text-align: center;
+    height: 50vh;  
+}
+.header{
+    background-color: rgb(255, 255, 255); 
+    text-align: center;
+    height: 50vh;  
+}
+.titulo-search{
+    padding: 25px;
+}
+.green{
+    color: #4CAF50;
+    font-weight: 600;
+}
+.white{
+    color: #ffff;
+    font-weight: bold;
+}
+.margem{
+    margin-top: 17%;
 }
