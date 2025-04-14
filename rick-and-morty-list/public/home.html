@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header>
+    <section class="header">
         <div class="d-flex flex-row mb-5 mt-3 ms-3">
             <nav>
                 <div class="d-flex">
@@ -21,39 +21,52 @@
             </nav>          
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-2 col-3 col-4 col-5">
-                <h1 class="titulo-search">API de Rick and Morty</h1>
+            <div class="col">
+                <h1 class="titulo">API de Rick and Morty</h1>
             </div>
         </div>
-                <form action="" method="get">
-                    <div class="row justify-content-center">
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <span class="input-group-text bg-transparent">
-                                    <input type="text" class="form-control border-0" placeholder="Pesquise" aria-label="Pesquisar">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                              </div>
-                        </div>
+        <div class="titulo-search">
+            <form action="" method="get">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <span class="input-group-text bg-transparent">
+                                <input type="text" class="form-control border-0" placeholder="Pesquise" aria-label="Pesquisar">
+                                <i class="bi bi-search"></i>
+                            </span>
+                          </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </header>
+                </div>
+            </form>
+         </div>     
+    </section>
 
     <main>
+        <img class="img-fluid fundo" src="./assets/FUNDO_2.jpg" alt="background">
+
+    </main>
+    <section class="footer">
         <div class="container">
-            <div class="row">
+            <div class="row mt-4 mb-4">  
+                <div class="col-3"></div>
                 <div class="col">
-                    <img class="img-fluid" src="./assets/FUNDO_2.jpg" alt="background">
+                    <h6 class="green">PERSONAGENS:</h6>
+                </div>
+                <div class="col">
+                    <h6 class="green">LOCALIZAÇÕES:</h6>
+                </div>
+                <div class="col">
+                    <h6 class="green">EPISÓDIOS:</h6>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row margem">
+                <div class="col">
+                    <p class="green">Desenvolvido por:<span class="white"> Manuela Barba </span>em 2023</p>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>Rodapé do Site</p>
-    </footer>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="./js/home.js"></script>
