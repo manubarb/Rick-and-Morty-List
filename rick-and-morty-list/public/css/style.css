@@ -5,6 +5,7 @@
     font-weight: 800;
     font-size: 375%;
     color: rgb(0, 88, 0);
+    align-content: center;
 }
 .fundo{
     background-size: cover;
@@ -33,5 +34,12 @@
     font-weight: bold;
 }
 .margem{
-    margin-top: 17%;
+    margin-top: 10%;
+}
+.fundo-back{
+    height: 200vh;
+    background-image: url(../assets/FUNDO_2.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
