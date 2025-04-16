@@ -43,3 +43,22 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.default-card{
+    width: 18rem;
+}
+.grey{
+    color: grey;
+}
+.fundo-card{
+    background-color: #121212;
+}
+.margem-p{
+    margin-bottom: 1px;
+}
+.centro{
+    align-self: center;
+}
+.borda{
+    border-color: #4CAF50;
+    border-radius: 10px;
+}
