@@ -23,7 +23,7 @@
     height: 50vh;  
 }
 .titulo-search{
-    padding: 25px;
+    padding: 20px;
 }
 .green{
     color: #4CAF50;
@@ -61,4 +61,17 @@
 .borda{
     border-color: #4CAF50;
     border-radius: 10px;
+}
+.link{
+    color: #4CAF50;
+}
+.input-suave {
+   border-radius: 10px;
+   height: 40px;
+   border-width: 2px;
+   
+  }
+.esse::placeholder{
+    color: #c7c7c7;
+    font-weight: 600;
 }
