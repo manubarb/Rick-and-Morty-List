@@ -43,11 +43,32 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.default-card{
-    width: 18rem;
+.card-sm {
+    width: 300px; 
+    height: 400px;
+}
+.card-img-top {
+    height: 200px; 
+    object-fit: contain;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;
+    padding: 15px; 
+    height: 100%; 
+}
+.card-text {
+    margin-bottom: 10px; 
+    font-size: 0.9rem;  
+    word-wrap: break-word; 
+}
+.card-title{
+    font-size: 1.2rem;
 }
 .grey{
     color: grey;
+    font-weight: 600;
 }
 .fundo-card{
     background-color: #121212;
