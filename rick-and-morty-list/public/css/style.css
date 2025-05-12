@@ -15,12 +15,12 @@
     color: white; 
     padding: 50px;
     text-align: center;
-    height: 50vh;  
+    height: 200px;  
 }
 .header{
     background-color: rgb(255, 255, 255); 
     text-align: center;
-    height: 50vh;  
+    height: 300px;  
 }
 .titulo-search{
     padding: 20px;
@@ -37,11 +37,11 @@
     margin-top: 10%;
 }
 .fundo-back{
-    height: 200vh;
+    height: 1500px;
     background-image: url(../assets/FUNDO_2.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: center;
+
 }
 .card-sm {
     width: 300px; 
@@ -95,4 +95,7 @@
 .esse::placeholder{
     color: #c7c7c7;
     font-weight: 600;
+}
+* {
+    max-width: 100%;
 }
