@@ -7,6 +7,12 @@
     color: rgb(0, 88, 0);
     align-content: center;
 }
+.titulo2{
+    font-weight: 800;
+    font-size: 300%;
+    color: rgb(0, 88, 0);
+    align-content: center;
+}
 .fundo{
     background-size: cover;
 }
@@ -21,6 +27,11 @@
     background-color: rgb(255, 255, 255); 
     text-align: center;
     height: 300px;  
+}
+.header2{
+    background-color: rgb(255, 255, 255); 
+    text-align: center;
+    height: 250px;  
 }
 .titulo-search{
     padding: 20px;
@@ -72,16 +83,14 @@
 }
 .fundo-card{
     background-color: #121212;
+    border-color: #4CAF50;
+    border-radius: 10px;
 }
 .margem-p{
     margin-bottom: 1px;
 }
 .centro{
     align-self: center;
-}
-.borda{
-    border-color: #4CAF50;
-    border-radius: 10px;
 }
 .link{
     color: #4CAF50;
@@ -98,4 +107,9 @@
 }
 * {
     max-width: 100%;
+}
+.fundo-cor{
+    background-color: #121212; 
+    color: white; 
+    text-align: center;
 }
