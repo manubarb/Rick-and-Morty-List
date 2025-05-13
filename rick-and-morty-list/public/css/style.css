@@ -61,6 +61,7 @@
 .card-img-top {
     height: 200px; 
     object-fit: contain;
+    transition: transform 0.5s ease;
 }
 .card-body {
     display: flex;
@@ -85,6 +86,11 @@
     background-color: #121212;
     border-color: #4CAF50;
     border-radius: 10px;
+}
+.fundo-card2{
+    background-color: #121212;
+    border-color: #4CAF50;
+    box-shadow: 10px 10px 30px #4CAF50 !important;
 }
 .margem-p{
     margin-bottom: 1px;
@@ -112,4 +118,38 @@
     background-color: #121212; 
     color: white; 
     text-align: center;
+}
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.floating-card {
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.floating-card:hover .card-img-top {
+    transform: translateZ(20px);
+}
+.detail{
+    font-weight: 500;
+}
+.detail:hover{
+    color: #121212;
+    font-weight: 500;
+    background-color: #4CAF50; 
+    transform: translateZ(-2px); 
+    border-color: #4CAF50;
 }

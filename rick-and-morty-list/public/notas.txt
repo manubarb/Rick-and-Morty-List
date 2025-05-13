@@ -1,0 +1,39 @@
+Para o home.js 
+- link do projeto: https://github.com/academygrowdev-leticialeal/bootcamp/blob/main/prototipo-2/js/index.js
+- no início testar: document.addEventListener('DOMContentLoaded', function() {})
+
+- função para atualizar os contadores no footer
+    async function updateCounts(charCount) {
+        try {
+            // Atualizar contagem de personagens
+            characterCount.textContent = charCount;
+            
+            // Buscar contagem de localizações
+            const locationsResponse = await fetch('https://rickandmortyapi.com/api/location');
+            const locationsData = await locationsResponse.json();
+            locationCount.textContent = locationsData.info.count;
+            
+            // Buscar contagem de episódios
+            const episodesResponse = await fetch('https://rickandmortyapi.com/api/episode');
+            const episodesData = await episodesResponse.json();
+            episodeCount.textContent = episodesData.info.count;
+        } catch (error) {
+            console.error('Error updating counts:', error);
+        }
+    }
+
+- container dos cards
+    const cardsContainer = document.querySelector('.d-flex.justify-content-center.align-items-center.flex-wrap');
+    function displayCharacters(characters) {
+        cardsContainer.innerHTML = '';
+        
+        if (characters.length === 0) {
+            cardsContainer.innerHTML = '<p class="text-white">Nenhum personagem encontrado</p>';
+            return;
+        }
+        
+        characters.forEach(character => {
+            const card = createCharacterCard(character);
+            cardsContainer.appendChild(card);
+        });
+    }
