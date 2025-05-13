@@ -6,3 +6,4 @@ PENDENCIAS:
 - arrumar a paginaçao 
 - deixar cards clicaveis
 - arrumar o css (botao e animaçao)
+- searchbar
