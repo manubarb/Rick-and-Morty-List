@@ -40,7 +40,7 @@ function renderCardCharacter(character) {
     const card = `
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
         <div class="col d-flex justify-content-center">
-          <div class="card default-card fundo-card card-sm">
+          <div class="card default-card fundo-card2 card-sm floating-card">
             <img src="${character.image}" class="card-img-top bg-light card-img-top" alt="Foto de ${character.name}">
             <div class="card-body centro mb-3">
               <h5 class="card-title white margem-p"><strong>${character.name}</strong></h5>

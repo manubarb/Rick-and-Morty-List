@@ -141,14 +141,14 @@
     perspective: 1000px;
 }
 .floating-card:hover .card-img-top {
-    transform: translateZ(20px);
+    transform: translateZ(30px);
 }
 .detail{
-    font-weight: 500;
+    font-weight: 600;
 }
 .detail:hover{
     color: #121212;
-    font-weight: 500;
+    font-weight: 600;
     background-color: #4CAF50; 
     transform: translateZ(-2px); 
     border-color: #4CAF50;

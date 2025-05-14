@@ -1,10 +1,7 @@
-Para o home.js 
 - link do projeto: https://github.com/academygrowdev-leticialeal/bootcamp/blob/main/prototipo-2/js/index.js
-- no início testar: document.addEventListener('DOMContentLoaded', function() {})
 
 PENDENCIAS:
 - ANIMAÇAO
 -- adicionar a classe floating-card no card de detail
-
 - IMAGENS DOS CARDS
 - FOOTER
