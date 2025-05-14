@@ -1,5 +1,0 @@
-- link do projeto: https://github.com/academygrowdev-leticialeal/bootcamp/blob/main/prototipo-2/js/index.js
-
-PENDENCIAS:
-- IMAGENS DOS CARDS
-- FOOTER
