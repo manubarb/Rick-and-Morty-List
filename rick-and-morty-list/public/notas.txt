@@ -3,7 +3,88 @@ Para o home.js
 - no início testar: document.addEventListener('DOMContentLoaded', function() {})
 
 PENDENCIAS:
-- arrumar a paginaçao 
-- deixar cards clicaveis
-- arrumar o css (botao e animaçao)
-- searchbar
+
+- PAGINAÇAO
+-- adicionar mt-5 no nav de home.html
+
+-- mudar as cores na funçao renderPagination:
+function renderPagination(prevPage, nextPage) {
+  const prevPageNumber = !prevPage ? 0 : prevPage.split("?page=")[1];
+  const nextPageNumber = !nextPage ? 0 : nextPage.split("?page=")[1];
+
+  const nav = document.getElementById("pagination");
+  nav.innerHTML = "";
+  const ul = document.createElement("ul");
+  ul.classList.add("pagination", "justify-content-center");
+
+  // Botão "Anterior"
+  const liPrevPage = document.createElement("li");
+  liPrevPage.classList.add("page-item", "bg-dark");
+
+  if (!prevPage) {
+    liPrevPage.classList.add("disabled");
+  }
+
+  const buttonPrev = document.createElement("button");
+  buttonPrev.setAttribute("type", "button");
+  buttonPrev.classList.add("page-link", "text-light", "bg-dark", "border-secondary");
+  buttonPrev.innerText = "Anterior";
+  buttonPrev.addEventListener("click", () => loadMainContent(prevPageNumber));
+
+  liPrevPage.appendChild(buttonPrev);
+
+  // Botão "Próxima"
+  const liNextPage = document.createElement("li");
+  liNextPage.classList.add("page-item", "bg-dark");
+
+  if (!nextPage) {
+    liNextPage.classList.add("disabled");
+  }
+
+  const buttonNext = document.createElement("button");
+  buttonNext.setAttribute("type", "button");
+  buttonNext.classList.add("page-link", "text-light", "bg-dark", "border-secondary");
+  buttonNext.innerText = "Próxima";
+  buttonNext.addEventListener("click", () => loadMainContent(nextPageNumber));
+
+  liNextPage.appendChild(buttonNext);
+
+  ul.appendChild(liPrevPage);
+  ul.appendChild(liNextPage);
+  nav.appendChild(ul);
+}
+- CARDS CLICAVEIS
+-- adicionar na segunda div do card de renderCharactersList:
+    <div class="card default-card fundo-card card-sm clickable-card" data-character-id="${character.id}" style="cursor: pointer;">
+-- funçao pra tornar clicavel
+function makeCardsClickable() {
+  const cards = document.querySelectorAll('.clickable-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const characterId = this.getAttribute('data-character-id');
+      viewCharacterDetail(characterId);
+    });
+    
+    // Efeito hover opcional
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02)';
+      this.style.transition = 'transform 0.2s ease';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+}
+-- chamar a funçao para deixar clicavel dentro de renderPageCharacters
+async function renderPageCharacters(page = 1) {
+  const result = await listCharactersByPage(page);
+
+  if (result?.charactersList) {
+    renderCharactersList(result.charactersList);
+    makeCardsClickable(); 
+  }
+}
+- ANIMAÇAO
+-- adicionar a classe floating-card no card de detail
