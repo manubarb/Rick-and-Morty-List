@@ -1,26 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.querySelector('.esse');
+  const searchIcon = document.querySelector('.input-group-text a');
+  const form = document.querySelector('form');
+
+  async function handleSearch() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      
+      if (!searchTerm) {
+          loadMainContent(1);
+          return;
+      }
+
+      const filtered = allCharacters.filter(character => {
+          return character.name.toLowerCase().includes(searchTerm);
+      });
+
+      const charactersWithEpisodes = await Promise.all(
+          filtered.slice(0, 6).map(async character => {
+              const lastEpisodeUrl = character.episode[character.episode.length - 1];
+              const episodeName = await getEpisodeDataFromURL(lastEpisodeUrl);
+              return {
+                  ...character,
+                  episode: {
+                      url: lastEpisodeUrl,
+                      name: episodeName
+                  }
+              };
+          })
+      );
+
+      renderCharactersList(charactersWithEpisodes);
+  }
+
+  searchInput.addEventListener('input', fast(handleSearch, 300));
+  searchIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      handleSearch();
+  });
+  form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleSearch();
+  });
+
+  function fast(func, wait) {
+      let timeout;
+      return function() {
+          const context = this, args = arguments;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+              func.apply(context, args);
+          }, wait);
+      };
+  }
     loadMainContent(1);
     renderFooterData();
     renderPageCharacters(); 
-
   });
 
+// Adicione no início do arquivo
+let allCharacters = [];
+
+// Modifique a função loadMainContent
 async function loadMainContent(page) {
   const result = await listCharactersByPage(page);
-
-  const characters = [...result.charactersList].slice(0, 6);
+  
+  // Armazene todos os personagens carregados
+  allCharacters = [...result.charactersList];
+  
+  const characters = allCharacters.slice(0, 6);
   
   for (const character of characters) {
     const lastEpisodeUrl = character.episode[character.episode.length - 1];
-
     const episodeName = await getEpisodeDataFromURL(lastEpisodeUrl);
-
     character.episode = {
       url: lastEpisodeUrl,
       name: episodeName,
     };
   }
-  console.log(await listCharactersByPage(1));
+  
   renderCharactersList(characters);
   renderPagination(result.prevPage, result.nextPage);
 }
