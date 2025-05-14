@@ -3,6 +3,49 @@ Para o home.js
 - no início testar: document.addEventListener('DOMContentLoaded', function() {})
 
 PENDENCIAS:
-- arrumar a paginaçao 
+
+- PAGINAÇAO
+-- adicionar mt-5 no nav de home.html
+-- esse é o html gerado na funçao renderPagination: 
+<nav id="pagination">
+  <ul class="pagination justify-content-center">
+    <!-- Botão Anterior -->
+    <li class="page-item disabled">  <!-- disabled é adicionado quando não há prevPage -->
+      <button type="button" class="page-link">Anterior</button>
+    </li>
+    
+    <!-- Botão Próxima -->
+    <li class="page-item">  <!-- disabled é adicionado quando não há nextPage -->
+      <button type="button" class="page-link">Próxima</button>
+    </li>
+  </ul>
+</nav>
+
+-- mudar as cores na funçao renderPagination:
+  nav.classList.add("bg-dark", "pagination-dark");
+  ul.classList.add("pagination", "justify-content-center", "dark-pagination");
+
+-- mudar as cores css:
+/* Estilo para o paginador escuro */
+.bg-dark.pagination-dark {
+  background-color: #343a40 !important;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+.dark-pagination .page-item .page-link {
+  background-color: #495057;
+  border-color: #6c757d;
+  color: #4CAF50 !important; /* Cor do texto */
+}
+.dark-pagination .page-item.disabled .page-link {
+  background-color: #343a40;
+  border-color: #6c757d;
+  color: #6c757d !important;
+}
+.dark-pagination .page-item:not(.disabled):hover .page-link {
+  background-color: #6c757d;
+  color: white !important;
+}
+
 - deixar cards clicaveis
 - arrumar o css (botao e animaçao)
