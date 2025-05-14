@@ -47,5 +47,37 @@ PENDENCIAS:
   color: white !important;
 }
 
-- deixar cards clicaveis
+- CARDS CLICAVEIS
+-- adicionar na segunda div do card de renderCharactersList:
+    <div class="card default-card fundo-card card-sm clickable-card" data-character-id="${character.id}" style="cursor: pointer;">
+-- funçao pra tornar clicavel
+function makeCardsClickable() {
+  const cards = document.querySelectorAll('.clickable-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const characterId = this.getAttribute('data-character-id');
+      viewCharacterDetail(characterId);
+    });
+    
+    // Efeito hover opcional
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02)';
+      this.style.transition = 'transform 0.2s ease';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+}
+-- chamar a funçao para deixar clicavel dentro de renderPageCharacters
+async function renderPageCharacters(page = 1) {
+  const result = await listCharactersByPage(page);
+
+  if (result?.charactersList) {
+    renderCharactersList(result.charactersList);
+    makeCardsClickable(); 
+  }
+}
 - arrumar o css (botao e animaçao)
