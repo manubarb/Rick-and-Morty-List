@@ -42,7 +42,7 @@ async function renderCharactersList(characters) {
   
       const card = `
         <div class="col d-flex justify-content-center mt-5">
-          <div class="card default-card fundo-card card-sm">
+            <div class="card default-card fundo-card card-sm clickable-card" data-character-id="${character.id}" style="cursor: pointer;">
             <img src="${character.image}" class="card-img-top bg-light card-img-top" alt="Foto de ${character.name}">
             <div class="card-body centro mb-3">
               <h5 class="card-title white margem-p"><strong>${nameCharacter}</strong></h5>
@@ -64,7 +64,8 @@ async function renderCharactersList(characters) {
       col.innerHTML = card;
       row.appendChild(col);
     }
-  }  
+    makeCardsClickable();
+  } 
 
   function renderPagination(prevPage, nextPage) {
     const prevPageNumber = !prevPage ? 0 : prevPage.split("?page=")[1];
@@ -124,3 +125,13 @@ async function renderPageCharacters(page = 1) {
     }
   }
   
+function makeCardsClickable() {
+    const cards = document.querySelectorAll('.clickable-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        const characterId = this.getAttribute('data-character-id');
+        viewCharacterDetail(characterId);
+      });
+    });
+  } 
