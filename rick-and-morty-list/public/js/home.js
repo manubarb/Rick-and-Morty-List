@@ -66,52 +66,51 @@ async function renderCharactersList(characters) {
     }
   }  
 
-function renderPagination(prevPage, nextPage) {
-  const prevPageNumber = !prevPage ? 0 : prevPage.split("?page=")[1];
-  const nextPageNumber = !nextPage ? 0 : nextPage.split("?page=")[1];
-
-  const nav = document.getElementById("pagination");
-  nav.innerHTML = "";
-  const ul = document.createElement("ul");
-  ul.classList.add("pagination", "justify-content-center");
-
-  // BTN Prev
-  const liPrevPage = document.createElement("li");
-  liPrevPage.classList.add("page-item");
-
-  if (!prevPage) {
-    liPrevPage.classList.add("disabled");
+  function renderPagination(prevPage, nextPage) {
+    const prevPageNumber = !prevPage ? 0 : prevPage.split("?page=")[1];
+    const nextPageNumber = !nextPage ? 0 : nextPage.split("?page=")[1];
+  
+    const nav = document.getElementById("pagination");
+    nav.innerHTML = "";
+    const ul = document.createElement("ul");
+    ul.classList.add("pagination", "justify-content-center");
+  
+    // Botão "Anterior"
+    const liPrevPage = document.createElement("li");
+    liPrevPage.classList.add("page-item", "bg-dark");
+  
+    if (!prevPage) {
+      liPrevPage.classList.add("disabled");
+    }
+  
+    const buttonPrev = document.createElement("button");
+    buttonPrev.setAttribute("type", "button");
+    buttonPrev.classList.add("page-link", "text-light", "bg-dark", "border-secondary");
+    buttonPrev.innerText = "Anterior";
+    buttonPrev.addEventListener("click", () => loadMainContent(prevPageNumber));
+  
+    liPrevPage.appendChild(buttonPrev);
+  
+    // Botão "Próxima"
+    const liNextPage = document.createElement("li");
+    liNextPage.classList.add("page-item", "bg-dark");
+  
+    if (!nextPage) {
+      liNextPage.classList.add("disabled");
+    }
+  
+    const buttonNext = document.createElement("button");
+    buttonNext.setAttribute("type", "button");
+    buttonNext.classList.add("page-link", "text-light", "bg-dark", "border-secondary");
+    buttonNext.innerText = "Próxima";
+    buttonNext.addEventListener("click", () => loadMainContent(nextPageNumber));
+  
+    liNextPage.appendChild(buttonNext);
+  
+    ul.appendChild(liPrevPage);
+    ul.appendChild(liNextPage);
+    nav.appendChild(ul);
   }
-
-  const buttonPrev = document.createElement("button");
-  buttonPrev.setAttribute("type", "button");
-  buttonPrev.classList.add("page-link");
-  buttonPrev.innerText = "Anterior";
-  buttonPrev.addEventListener("click", () => loadMainContent(prevPageNumber));
-
-  liPrevPage.appendChild(buttonPrev);
-
-  // BTN Next
-  const liNextPage = document.createElement("li");
-  liPrevPage.classList.add("page-item");
-
-  if (!nextPage) {
-    liNextPage.classList.add("disabled");
-  }
-
-  const buttonNext = document.createElement("button");
-  buttonNext.setAttribute("type", "button");
-  buttonNext.classList.add("page-link");
-  buttonNext.innerText = "Próxima";
-  buttonNext.addEventListener("click", () => loadMainContent(nextPageNumber));
-
-  liNextPage.appendChild(buttonNext);
-
-  ul.appendChild(liPrevPage);
-  ul.appendChild(liNextPage);
-
-  nav.appendChild(ul);
-}
 
 function viewCharacterDetail(characterId) {
   window.location.href = `detail.html?character=${characterId}`;
