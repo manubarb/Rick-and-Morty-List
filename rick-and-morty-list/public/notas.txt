@@ -80,4 +80,5 @@ async function renderPageCharacters(page = 1) {
     makeCardsClickable(); 
   }
 }
-- arrumar o css (botao e animaçao)
+- ANIMAÇAO
+-- adicionar a classe floating-card no card de detail
