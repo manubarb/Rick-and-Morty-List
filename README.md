@@ -2,8 +2,6 @@
 
 Web application that consumes the public Rick and Morty API to display characters dynamically in a searchable interface.
 
----
-
 ## ✨ Features
 
 - Character listing rendered dynamically from API data  
@@ -12,16 +10,12 @@ Web application that consumes the public Rick and Morty API to display character
 - Responsive card layout using Flexbox
 - Pagination
 
----
-
 ## 🛠 Technologies
 
 - HTML5  
 - CSS3 (Flexbox)  
 - JavaScript (ES6)  
 - REST API consumption (GET requests)  
-
----
 
 ## 📚 Technical Highlights
 
